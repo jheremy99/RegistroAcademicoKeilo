@@ -35,7 +35,7 @@ interface Payment {
 
 interface StudentWithPayments extends Student {
   totalPaid: number;
-  status: "Paid" | "Partial Payment" | "Unpaid";
+  status: "Pagado" | "Pago Parcial" | "Sin Pagar";
 }
 
 const Payments = () => {
@@ -159,31 +159,31 @@ const Payments = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight">Payments</h1>
+            <h1 className="text-4xl font-bold tracking-tight">Pagos</h1>
             <p className="text-muted-foreground mt-2">
-              Track and manage student payment records
+              Realizar un seguimiento y gestionar los registros de pago de los estudiantes
             </p>
           </div>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
               <Button size="lg">
                 <Plus className="mr-2 h-5 w-5" />
-                Add Payment
+                Agregar pago
               </Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Record Payment</DialogTitle>
+                <DialogTitle>Registro pagos</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="student">Student *</Label>
+                  <Label htmlFor="student">Alumno </Label>
                   <Select
                     value={formData.studentId}
                     onValueChange={(value) => setFormData({ ...formData, studentId: value })}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select student" />
+                      <SelectValue placeholder="Seleccionar estudiante" />
                     </SelectTrigger>
                     <SelectContent>
                       {students.map((student) => (
@@ -196,7 +196,7 @@ const Payments = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="amount">Amount *</Label>
+                  <Label htmlFor="amount">Cantidad </Label>
                   <Input
                     id="amount"
                     type="number"
@@ -208,7 +208,7 @@ const Payments = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="paymentDate">Payment Date *</Label>
+                  <Label htmlFor="paymentDate">Fecha de Pago </Label>
                   <Input
                     id="paymentDate"
                     type="date"
@@ -219,7 +219,7 @@ const Payments = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="notes">Notes (Optional)</Label>
+                  <Label htmlFor="notes">Notas (opcional)</Label>
                   <Textarea
                     id="notes"
                     value={formData.notes}
@@ -232,7 +232,7 @@ const Payments = () => {
                   <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
                     Cancel
                   </Button>
-                  <Button type="submit">Record Payment</Button>
+                  <Button type="submit">Registrar pago</Button>
                 </div>
               </form>
             </DialogContent>
@@ -242,16 +242,16 @@ const Payments = () => {
         <Card>
           <CardHeader>
             <div className="flex items-center gap-4">
-              <CardTitle className="flex-1">Payment Status</CardTitle>
+              <CardTitle className="flex-1">Estado de pago</CardTitle>
               <Select value={filterStatus} onValueChange={setFilterStatus}>
                 <SelectTrigger className="w-48">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Status</SelectItem>
-                  <SelectItem value="Paid">Paid</SelectItem>
-                  <SelectItem value="Partial Payment">Partial Payment</SelectItem>
-                  <SelectItem value="Unpaid">Unpaid</SelectItem>
+                  <SelectItem value="all">Todo el estado</SelectItem>
+                  <SelectItem value="Paid">Pagado</SelectItem>
+                  <SelectItem value="Partial Payment">Pago Parcial</SelectItem>
+                  <SelectItem value="Unpaid">No pagado</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -263,17 +263,17 @@ const Payments = () => {
               </div>
             ) : filteredStudents.length === 0 ? (
               <div className="text-center py-8 text-muted-foreground">
-                No students found
+                No se encontraron estudiantes
               </div>
             ) : (
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Student Name</TableHead>
-                    <TableHead>Total Tuition</TableHead>
-                    <TableHead>Total Paid</TableHead>
+                    <TableHead>Nombre del estudiante</TableHead>
+                    <TableHead>Matrícula total</TableHead>
+                    <TableHead>Total pagado</TableHead>
                     <TableHead>Balance</TableHead>
-                    <TableHead>Status</TableHead>
+                    <TableHead>Estado</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>

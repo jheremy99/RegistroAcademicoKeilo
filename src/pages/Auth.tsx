@@ -11,9 +11,9 @@ import { z } from "zod";
 import { GraduationCap } from "lucide-react";
 
 const authSchema = z.object({
-  email: z.string().email({ message: "Invalid email address" }),
-  password: z.string().min(6, { message: "Password must be at least 6 characters" }),
-  fullName: z.string().min(2, { message: "Full name is required" }).optional(),
+  email: z.string().email({ message: "Dirección de correo inválida" }),
+  password: z.string().min(6, { message: "La contraseña debe tener al menos 6 caracteres" }),
+  fullName: z.string().min(2, { message: "El nombre completo es requerido" }).optional(),
 });
 
 const Auth = () => {
@@ -34,7 +34,7 @@ const Auth = () => {
       });
 
       if (error) throw error;
-      toast.success("Login successful!");
+      toast.success("¡Inicio de sesión exitoso!");
       navigate("/dashboard");
     } catch (error: any) {
       if (error instanceof z.ZodError) {
@@ -85,14 +85,14 @@ const Auth = () => {
           <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-2">
             <GraduationCap className="h-10 w-10 text-primary-foreground" />
           </div>
-          <CardTitle className="text-3xl font-bold">Academy Management</CardTitle>
-          <CardDescription>Administrative access portal</CardDescription>
+          <CardTitle className="text-3xl font-bold">Gestión de la Academia</CardTitle>
+          <CardDescription>Portal de acceso administrativo</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="login">Login</TabsTrigger>
-              <TabsTrigger value="signup">Sign Up</TabsTrigger>
+              <TabsTrigger value="login">Acceso</TabsTrigger>
+              <TabsTrigger value="signup">Inscribirse</TabsTrigger>
             </TabsList>
             <TabsContent value="login">
               <form onSubmit={handleLogin} className="space-y-4">
@@ -118,14 +118,14 @@ const Auth = () => {
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? "Logging in..." : "Login"}
+                  {isLoading ? "Logging in..." : "Acceso"}
                 </Button>
               </form>
             </TabsContent>
             <TabsContent value="signup">
               <form onSubmit={handleSignup} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="signup-name">Full Name</Label>
+                  <Label htmlFor="signup-name">Nombre completo</Label>
                   <Input
                     id="signup-name"
                     type="text"
@@ -157,7 +157,7 @@ const Auth = () => {
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? "Creating account..." : "Sign Up"}
+                  {isLoading ? "Creating account..." : "Inscribirse"}
                 </Button>
               </form>
             </TabsContent>

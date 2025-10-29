@@ -99,9 +99,9 @@ const StudentDetail = () => {
     return (
       <DashboardLayout>
         <div className="text-center py-12">
-          <p className="text-muted-foreground">Student not found</p>
+          <p className="text-muted-foreground">Estudiante no encontrado</p>
           <Button onClick={() => navigate("/students")} className="mt-4">
-            Back to Students
+            Volver a los estudiantes
           </Button>
         </div>
       </DashboardLayout>
@@ -135,7 +135,7 @@ const StudentDetail = () => {
       <div className="space-y-6">
         <Button variant="ghost" onClick={() => navigate("/students")}>
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Students
+          Volver a los estudiantes
         </Button>
 
         <div className="flex items-center justify-between">
@@ -156,22 +156,22 @@ const StudentDetail = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <User className="h-5 w-5" />
-                Student Information
+                Información del estudiante
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Date of Birth:</span>
+                <span className="text-muted-foreground">Fecha de nacimiento:</span>
                 <span className="font-medium">
                   {new Date(student.date_of_birth).toLocaleDateString()}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Grade Level:</span>
+                <span className="text-muted-foreground">Nivel de grado:</span>
                 <span className="font-medium">{student.grade_level}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Registration Date:</span>
+                <span className="text-muted-foreground">Fecha de registro:</span>
                 <span className="font-medium">
                   {new Date(student.created_at).toLocaleDateString()}
                 </span>
@@ -184,33 +184,33 @@ const StudentDetail = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <UsersIcon className="h-5 w-5" />
-                Parent Information
+                Información para padres
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               {parent ? (
                 <>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Full Name:</span>
+                    <span className="text-muted-foreground">Nombre completo:</span>
                     <span className="font-medium">{parent.full_name}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">ID Number:</span>
+                    <span className="text-muted-foreground">DNI</span>
                     <span className="font-medium">{parent.id_number}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Phone:</span>
+                    <span className="text-muted-foreground">Celular</span>
                     <span className="font-medium">{parent.cell_phone}</span>
                   </div>
                   {parent.address && (
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">Address:</span>
+                      <span className="text-muted-foreground">Direcciòn</span>
                       <span className="font-medium">{parent.address}</span>
                     </div>
                   )}
                 </>
               ) : (
-                <p className="text-muted-foreground">No parent information available</p>
+                <p className="text-muted-foreground">No hay información de los padres disponible</p>
               )}
             </CardContent>
           </Card>
@@ -221,17 +221,17 @@ const StudentDetail = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <DollarSign className="h-5 w-5" />
-              Payment Summary
+              Resumen de pago
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 md:grid-cols-4">
               <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Total Tuition</p>
+                <p className="text-sm text-muted-foreground">Matrícula total</p>
                 <p className="text-2xl font-bold">${Number(student.total_tuition).toFixed(2)}</p>
               </div>
               <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Total Paid</p>
+                <p className="text-sm text-muted-foreground">Total pagado</p>
                 <p className="text-2xl font-bold text-success">${totalPaid.toFixed(2)}</p>
               </div>
               <div className="space-y-1">
@@ -239,23 +239,23 @@ const StudentDetail = () => {
                 <p className="text-2xl font-bold text-destructive">${balance.toFixed(2)}</p>
               </div>
               <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Status</p>
+                <p className="text-sm text-muted-foreground">Estado</p>
                 <Badge className={getStatusColor(paymentStatus)}>{paymentStatus}</Badge>
               </div>
             </div>
 
             <Separator className="my-6" />
 
-            <h3 className="font-semibold mb-4">Payment History</h3>
+            <h3 className="font-semibold mb-4">Historial de pagos</h3>
             {payments.length === 0 ? (
-              <p className="text-muted-foreground">No payments recorded</p>
+              <p className="text-muted-foreground">No se registraron pagos</p>
             ) : (
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Date</TableHead>
-                    <TableHead>Amount</TableHead>
-                    <TableHead>Notes</TableHead>
+                    <TableHead>Fecha</TableHead>
+                    <TableHead>Cantidad</TableHead>
+                    <TableHead>Notas</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -277,20 +277,20 @@ const StudentDetail = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <BookOpen className="h-5 w-5" />
-              Academic Performance
+              Rendimiento Académico
             </CardTitle>
           </CardHeader>
           <CardContent>
             {grades.length === 0 ? (
-              <p className="text-muted-foreground">No grades recorded</p>
+              <p className="text-muted-foreground">No se registraron calificaciones</p>
             ) : (
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Subject</TableHead>
-                    <TableHead>Grade</TableHead>
-                    <TableHead>Observations</TableHead>
-                    <TableHead>Date</TableHead>
+                    <TableHead>Sujeto</TableHead>
+                    <TableHead>Calificación</TableHead>
+                    <TableHead>Observaciones</TableHead>
+                    <TableHead>Fecha</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>

@@ -184,8 +184,8 @@ CREATE POLICY "Admins can delete grades"
 
 -- Insert some default subjects
 INSERT INTO public.subjects (name, description) VALUES
-  ('Mathematics', 'Mathematics course'),
-  ('Science', 'Science course'),
-  ('Language Arts', 'Language and literature'),
-  ('Social Studies', 'History and geography'),
-  ('Physical Education', 'Physical education and sports');
+  ('Álgebra', 'Mathematics course'),
+  ('Geometria', 'Science course'),
+  ('Languaje', 'Language and literature'),
+  ('trigonometria', 'History and geography'),
+  ('fisica', 'Physical education and sports');

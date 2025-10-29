@@ -13,10 +13,10 @@ interface Stats {
 
 const Dashboard = () => {
   const [stats, setStats] = useState<Stats>({
-    totalStudents: 0,
-    totalPayments: 0,
-    pendingPayments: 0,
-    averageGrade: 0,
+    totalStudents: 0, // Total de Estudiantes
+    totalPayments: 0, // Total de Pagos
+    pendingPayments: 0, // Pagos Pendientes
+    averageGrade: 0, // Promedio de Calificaciones
   });
   const [loading, setLoading] = useState(true);
 
@@ -82,25 +82,25 @@ const Dashboard = () => {
 
   const statCards = [
     {
-      title: "Total Students",
+      title: "Total de estudiantes",
       value: stats.totalStudents,
       icon: Users,
       color: "text-primary",
     },
     {
-      title: "Total Payments",
+      title: "Pagos totales",
       value: `$${stats.totalPayments.toFixed(2)}`,
       icon: DollarSign,
       color: "text-success",
     },
     {
-      title: "Pending Payments",
+      title: "Pagos pendientes",
       value: stats.pendingPayments,
       icon: TrendingUp,
       color: "text-warning",
     },
     {
-      title: "Average Grade",
+      title: "Calificación promedio",
       value: stats.averageGrade || "N/A",
       icon: BookOpen,
       color: "text-info",
@@ -113,7 +113,7 @@ const Dashboard = () => {
         <div>
           <h1 className="text-4xl font-bold tracking-tight">Dashboard</h1>
           <p className="text-muted-foreground mt-2">
-            Overview of academy statistics and metrics
+            Descripción general de las estadísticas y métricas de la academia
           </p>
         </div>
 
@@ -154,32 +154,32 @@ const Dashboard = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Welcome to Academy Management System</CardTitle>
+            <CardTitle>Bienvenido al Sistema de Gestión de la Academia</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground">
-              Use the navigation menu to manage students, track payments, and record grades.
+              Utilice el menú de navegación para administrar estudiantes, realizar un seguimiento de los pagos y registrar calificaciones.
             </p>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="p-4 border rounded-lg">
                 <Users className="h-6 w-6 text-primary mb-2" />
-                <h3 className="font-semibold mb-1">Student Management</h3>
+                <h3 className="font-semibold mb-1">Gestión de estudiantes</h3>
                 <p className="text-sm text-muted-foreground">
-                  Register and manage student information including personal details and parent contacts
+                  Registrar y administrar la información de los estudiantes, incluidos los datos personales y los contactos de los padres.
                 </p>
               </div>
               <div className="p-4 border rounded-lg">
                 <DollarSign className="h-6 w-6 text-success mb-2" />
-                <h3 className="font-semibold mb-1">Payment Tracking</h3>
+                <h3 className="font-semibold mb-1">Seguimiento de pagos</h3>
                 <p className="text-sm text-muted-foreground">
-                  Monitor tuition payments with automatic status detection and payment history
+                  Supervise los pagos de matrícula con detección automática de estado e historial de pagos
                 </p>
               </div>
               <div className="p-4 border rounded-lg">
                 <BookOpen className="h-6 w-6 text-info mb-2" />
-                <h3 className="font-semibold mb-1">Grade Records</h3>
+                <h3 className="font-semibold mb-1">Registros de calificaciones</h3>
                 <p className="text-sm text-muted-foreground">
-                  Record and track student grades across different subjects with detailed observations
+                  Registre y realice un seguimiento de las calificaciones de los estudiantes en diferentes materias con observaciones detalladas
                 </p>
               </div>
             </div>

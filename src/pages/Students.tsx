@@ -14,15 +14,15 @@ import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 const studentSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
-  idNumber: z.string().min(5, "ID number must be at least 5 characters"),
-  dateOfBirth: z.string().min(1, "Date of birth is required"),
-  gradeLevel: z.string().min(1, "Grade level is required"),
-  totalTuition: z.number().min(0, "Tuition must be positive"),
-  parentName: z.string().min(2, "Parent name must be at least 2 characters"),
-  parentIdNumber: z.string().min(5, "Parent ID must be at least 5 characters"),
-  parentPhone: z.string().min(10, "Phone must be at least 10 characters"),
+  firstName: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
+  lastName: z.string().min(2, "El apellido debe tener al menos 2 caracteres"),
+  idNumber: z.string().min(5, "El número de identificación debe tener al menos 5 caracteres"),
+  dateOfBirth: z.string().min(1, "La fecha de nacimiento es requerida"),
+  gradeLevel: z.string().min(1, "El grado es requerido"),
+  totalTuition: z.number().min(0, "La matrícula debe ser un valor positivo"),
+  parentName: z.string().min(2, "El nombre del padre debe tener al menos 2 caracteres"),
+  parentIdNumber: z.string().min(5, "La identificación del padre debe tener al menos 5 caracteres"),
+  parentPhone: z.string().min(10, "El teléfono debe tener al menos 10 caracteres"),
   parentAddress: z.string().optional(),
 });
 
@@ -151,28 +151,28 @@ const Students = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight">Students</h1>
+            <h1 className="text-4xl font-bold tracking-tight">Estudiantes</h1>
             <p className="text-muted-foreground mt-2">
-              Manage student registrations and information
+              Gestionar las inscripciones e información de los estudiantes
             </p>
           </div>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
               <Button size="lg">
                 <Plus className="mr-2 h-5 w-5" />
-                Register Student
+                Registrar Estudiante
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
-                <DialogTitle>Register New Student</DialogTitle>
+                <DialogTitle>Registrar nuevo estudiante</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-4">
-                  <h3 className="font-semibold text-lg">Student Information</h3>
+                  <h3 className="font-semibold text-lg">Información del estudiante</h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name *</Label>
+                      <Label htmlFor="firstName">Nombre</Label>
                       <Input
                         id="firstName"
                         value={formData.firstName}
@@ -181,7 +181,7 @@ const Students = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name *</Label>
+                      <Label htmlFor="lastName">Apellido </Label>
                       <Input
                         id="lastName"
                         value={formData.lastName}
@@ -190,7 +190,7 @@ const Students = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="idNumber">ID Number *</Label>
+                      <Label htmlFor="idNumber">DNI</Label>
                       <Input
                         id="idNumber"
                         value={formData.idNumber}
@@ -199,7 +199,7 @@ const Students = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="dateOfBirth">Date of Birth *</Label>
+                      <Label htmlFor="dateOfBirth">Fecha de nacimiento </Label>
                       <Input
                         id="dateOfBirth"
                         type="date"
@@ -209,7 +209,7 @@ const Students = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="gradeLevel">Grade/Level *</Label>
+                      <Label htmlFor="gradeLevel">Grado/Nivel </Label>
                       <Input
                         id="gradeLevel"
                         value={formData.gradeLevel}
@@ -218,7 +218,7 @@ const Students = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="totalTuition">Total Tuition *</Label>
+                      <Label htmlFor="totalTuition">Matrícula total </Label>
                       <Input
                         id="totalTuition"
                         type="number"
@@ -232,10 +232,10 @@ const Students = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="font-semibold text-lg">Parent Information</h3>
+                  <h3 className="font-semibold text-lg">Información para padres</h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="parentName">Full Name *</Label>
+                      <Label htmlFor="parentName">Nombre completo</Label>
                       <Input
                         id="parentName"
                         value={formData.parentName}
@@ -244,7 +244,7 @@ const Students = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="parentIdNumber">ID Number *</Label>
+                      <Label htmlFor="parentIdNumber">DNI</Label>
                       <Input
                         id="parentIdNumber"
                         value={formData.parentIdNumber}
@@ -253,7 +253,7 @@ const Students = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="parentPhone">Cell Phone *</Label>
+                      <Label htmlFor="parentPhone">Celular</Label>
                       <Input
                         id="parentPhone"
                         type="tel"
@@ -263,7 +263,7 @@ const Students = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="parentAddress">Address (Optional)</Label>
+                      <Label htmlFor="parentAddress">Direcciòn (Optional)</Label>
                       <Input
                         id="parentAddress"
                         value={formData.parentAddress}
@@ -277,7 +277,7 @@ const Students = () => {
                   <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
                     Cancel
                   </Button>
-                  <Button type="submit">Register Student</Button>
+                  <Button type="submit">Registrar Estudiante</Button>
                 </div>
               </form>
             </DialogContent>
@@ -305,17 +305,17 @@ const Students = () => {
               </div>
             ) : filteredStudents.length === 0 ? (
               <div className="text-center py-8 text-muted-foreground">
-                No students found
+                No se encontraron estudiantes
               </div>
             ) : (
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>ID Number</TableHead>
-                    <TableHead>Grade</TableHead>
-                    <TableHead>Date of Birth</TableHead>
-                    <TableHead>Tuition</TableHead>
+                    <TableHead>Nombre</TableHead>
+                    <TableHead>DNI</TableHead>
+                    <TableHead>Calificación</TableHead>
+                    <TableHead>Fecha de nacimiento</TableHead>
+                    <TableHead>Matrícula</TableHead>
                     <TableHead className="text-right">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -338,7 +338,7 @@ const Students = () => {
                           onClick={() => navigate(`/student/${student.id}`)}
                         >
                           <Eye className="h-4 w-4 mr-2" />
-                          View
+                          Vista
                         </Button>
                       </TableCell>
                     </TableRow>

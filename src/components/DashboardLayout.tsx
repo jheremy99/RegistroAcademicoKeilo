@@ -24,18 +24,18 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
-      toast.error("Error logging out");
+      toast.error("Error al cerrar sesión");
     } else {
-      toast.success("Logged out successfully");
+      toast.success("Sesión cerrada correctamente");
       navigate("/auth");
     }
   };
 
   const navItems = [
-    { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { path: "/students", label: "Students", icon: Users },
-    { path: "/payments", label: "Payments", icon: DollarSign },
-    { path: "/grades", label: "Grades", icon: BookOpen },
+    { path: "/dashboard", label: "Panel", icon: LayoutDashboard },
+    { path: "/students", label: "Estudiantes", icon: Users },
+    { path: "/payments", label: "Pagos", icon: DollarSign },
+    { path: "/grades", label: "Calificaciones", icon: BookOpen },
   ];
 
   return (
@@ -46,7 +46,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           {/* Logo */}
           <div className="flex h-16 items-center border-b px-6">
             <GraduationCap className="h-8 w-8 text-primary mr-3" />
-            <span className="text-xl font-bold text-foreground">Academy Admin</span>
+            <span className="text-xl font-bold text-foreground">Administración Académica</span>
           </div>
 
           {/* Navigation */}
@@ -79,7 +79,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
               onClick={handleLogout}
             >
               <LogOut className="mr-3 h-5 w-5" />
-              Logout
+              Cerrar sesión
             </Button>
           </div>
         </div>

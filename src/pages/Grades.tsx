@@ -117,31 +117,31 @@ const Grades = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight">Grades</h1>
+            <h1 className="text-4xl font-bold tracking-tight">calificaciones</h1>
             <p className="text-muted-foreground mt-2">
-              Record and manage student academic performance
+              Registrar y gestionar el rendimiento académico de los estudiantes
             </p>
           </div>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
               <Button size="lg">
                 <Plus className="mr-2 h-5 w-5" />
-                Add Grade
+                Agregar calificación
               </Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Record Grade</DialogTitle>
+                <DialogTitle>Calificación récord</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="student">Student *</Label>
+                  <Label htmlFor="student">Alumno </Label>
                   <Select
                     value={formData.studentId}
                     onValueChange={(value) => setFormData({ ...formData, studentId: value })}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select student" />
+                      <SelectValue placeholder="Seleccionar estudiante" />
                     </SelectTrigger>
                     <SelectContent>
                       {students.map((student) => (
@@ -154,13 +154,13 @@ const Grades = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject *</Label>
+                  <Label htmlFor="subject">Sujeto </Label>
                   <Select
                     value={formData.subjectId}
                     onValueChange={(value) => setFormData({ ...formData, subjectId: value })}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select subject" />
+                      <SelectValue placeholder="Seleccionar Materia" />
                     </SelectTrigger>
                     <SelectContent>
                       {subjects.map((subject) => (
@@ -173,7 +173,7 @@ const Grades = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="grade">Grade *</Label>
+                  <Label htmlFor="grade">Calificación </Label>
                   <Input
                     id="grade"
                     type="number"
@@ -185,7 +185,7 @@ const Grades = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="observations">Observations (Optional)</Label>
+                  <Label htmlFor="observations">Observaciones (opcional)</Label>
                   <Textarea
                     id="observations"
                     value={formData.observations}
@@ -198,7 +198,7 @@ const Grades = () => {
                   <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
                     Cancel
                   </Button>
-                  <Button type="submit">Record Grade</Button>
+                  <Button type="submit">Calificación récord</Button>
                 </div>
               </form>
             </DialogContent>
@@ -207,7 +207,7 @@ const Grades = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Grade Records</CardTitle>
+            <CardTitle>Registros de calificaciones</CardTitle>
           </CardHeader>
           <CardContent>
             {loading ? (
@@ -216,17 +216,17 @@ const Grades = () => {
               </div>
             ) : grades.length === 0 ? (
               <div className="text-center py-8 text-muted-foreground">
-                No grades recorded yet
+                Aún no hay calificaciones registradas
               </div>
             ) : (
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Student</TableHead>
-                    <TableHead>Subject</TableHead>
-                    <TableHead>Grade</TableHead>
-                    <TableHead>Observations</TableHead>
-                    <TableHead>Date</TableHead>
+                    <TableHead>Alumno</TableHead>
+                    <TableHead>Sujeto</TableHead>
+                    <TableHead>Calificación</TableHead>
+                    <TableHead>Observaciones</TableHead>
+                    <TableHead>Fecha</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
